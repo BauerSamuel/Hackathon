@@ -1,8 +1,8 @@
-import ActivePostService from "./activePostService.js";
+import CommentService from "./commentService.js";
 
 // Private
 
-let _aps = new ActivePostService()
+let _aps = new CommentService()
 
 function drawComments() {
     let comments = _aps.Comments
@@ -17,7 +17,7 @@ function drawComments() {
 
 // Public
 
-export default class ActivePostController {
+export default class CommentController {
     constructor() {
         _aps.addSubscriber('comments', drawComments)
         _aps.getComments()

@@ -65,7 +65,18 @@ export default class PostService {
 
     // view active post in right side window
     viewActivePost(_id) {
-        let data = _state.posts.find(a => a._id == _state.posts)
+        let data = _state.posts.find(a => a._id == _id)
+        data.hot++
+        _setState('activePost', data)
+    }
+
+    hot(_id) {
+        let data = _state.activePost.hot++
+        _setState('activePost', data)
+    }
+
+    cool(_id) {
+        let data = _state.activePost.cool++
         _setState('activePost', data)
     }
 

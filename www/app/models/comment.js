@@ -1,4 +1,4 @@
-export default class ActivePost {
+export default class Comment {
     constructor(data) {
         this._id = data._id
         this.title = data.title

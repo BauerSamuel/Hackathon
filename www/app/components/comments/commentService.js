@@ -1,4 +1,4 @@
-import ActivePost from "../../models/activePost.js"
+import Comment from "../../models/comment.js"
 
 // Private
 
@@ -22,7 +22,7 @@ function _setState(data, val) {
 
 // Public
 
-export default class ActivePostService {
+export default class CommentService {
     addSubscriber(data, fn) {
         _subscribers[data].push(fn)
     }

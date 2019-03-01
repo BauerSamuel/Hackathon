@@ -15,19 +15,8 @@ function drawPosts() {
 
 function drawActivePost() {
     let active = _ps.ActivePost
-    let template = `
-        <div class="card" >
-            <img class="card-img-top" src="${active.image}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">${active.title}</h5>
-                    <p class="card-text">${active.description}</p>
-                    <button class="btn btn-danger shadow" onclick="app.controllers.activePostController.agree('${this._id}')">Fire</button>
-                    <button class="btn btn-primary shadow" onclick="app.controllers.activePostController.disagree('${this._id}')">Snowflake</button>
-                </div>
-        </div>
-        `
 
-    document.querySelector('#active-post').innerHTML = template
+    document.querySelector('#active-post').innerHTML = active.getActivePostTemplate()
 
 
 }
@@ -67,6 +56,14 @@ export default class PostController {
     // View a post (active post)
     viewActivePost(_id) {
         _ps.viewActivePost(_id)
+    }
+
+    hot(_id) {
+        _ps.hot(_id)
+    }
+
+    cool(_id) {
+        _ps.cool(_id)
     }
 
 }
