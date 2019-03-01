@@ -1,4 +1,5 @@
-import PostController from "./app/components/post/postController.js"
+import PostController from "./components/post/postController.js";
+
 
 class App {
     constructor() {
