@@ -14,7 +14,7 @@ let _subscribers = {
     comments: []
 }
 
-function setState(data, val) {
+function _setState(data, val) {
     _state[data] = val
     _subscribers[data].forEach(fn => fn())
 }
@@ -36,6 +36,7 @@ export default class ActivePostService {
         _myServer.get('comments')
             .then(res => {
                 let data = res.data.map(c => new Comment(c))
+                _setState('activePosts', data)
             })
     }
 
@@ -49,7 +50,6 @@ export default class ActivePostService {
     }
 
     // Edit comment (Do we want this?)
-
 
     // Delete comment
     deleteComment(_id) {
