@@ -13,13 +13,12 @@ function drawPosts() {
     document.querySelector('#main-thread').innerHTML = template
 }
 
+
 function drawActivePost() {
     let active = _ps.ActivePost
-
     document.querySelector('#active-post').innerHTML = active.getActivePostTemplate()
-
-
 }
+
 
 
 // Public
@@ -58,12 +57,12 @@ export default class PostController {
         _ps.viewActivePost(_id)
     }
 
-    hot(_id) {
-        _ps.hot(_id)
+    postHot(_id) {
+        _ps.postHot(_id)
     }
 
-    cool(_id) {
-        _ps.cool(_id)
+    postCool(_id) {
+        _ps.postCool(_id)
     }
 
 }
