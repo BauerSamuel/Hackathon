@@ -6,7 +6,7 @@ let server = express()
 
 let port = 3000
 
-
+server.use(express.static(__dirname + "/www"))
 
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
