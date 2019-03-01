@@ -4,6 +4,7 @@ import Post from "../../models/post.js"
 
 let _myServer = axios.create({
     baseURL: '//localhost:3000/api'
+    
 })
 
 let _state = {
