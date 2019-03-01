@@ -74,7 +74,8 @@ export default class PostService {
 
     //edit active post, increment hots
     postHot(_id) {
-        let data = _state.activePost.postHot++
+        _state.activePost.postHot++
+        let data = _state.activePost
         _myServer.put(`/posts/${_id}`, data)
             .then(res => console.log(res.data))
         this.getPosts()
