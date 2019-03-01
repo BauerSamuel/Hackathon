@@ -15,7 +15,7 @@ export default class Post {
         <div class="card">
             <img class="card-img-top" src="${this.image}" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">${this.title}</h5>
+                <h3 class="card-title">${this.title}</h3>
                 <p class="card-text">${this.description}</p>
                 <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button>
                 <button class="btn btn-sm btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Fire</button><p class="ml-3" id="hot-counter"># hot: ${this.postHot}</p>

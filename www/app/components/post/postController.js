@@ -20,7 +20,6 @@ function drawActivePost() {
 }
 
 
-
 // Public
 export default class PostController {
     constructor() {
