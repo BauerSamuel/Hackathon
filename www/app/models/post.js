@@ -4,7 +4,7 @@ export default class Post {
         this.title = data.title
         this.description = data.description
         this.image = data.image
-        this.postHot = 0
+        this.postHot = data.postHot || 0
         this.postCool = 0
         this.commentHot = 0
         this.commentCool = 0
