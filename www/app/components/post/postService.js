@@ -17,14 +17,13 @@ let _subscribers = {
     activePost: []
 }
 
-function setState(data, val) {
+function _setState(data, val) {
     _state[data] = val
     _subscribers[data].forEach(fn => fn())
 }
 
 
 // Public
-
 export default class PostService {
     addSubscriber(data, fn) {
         _subscribers[data].push(fn)
@@ -43,7 +42,7 @@ export default class PostService {
         _myServer.get('/posts')
             .then(res => {
                 let data = res.data.map(p => new Post(p))
-                setState('posts', data)
+                _setState('posts', data)
             })
     }
 
@@ -56,15 +55,18 @@ export default class PostService {
             })
     }
 
-    // Edit post (don't think we want)
-
-
     // Delete post
     deletePost(_id) {
         _myServer.delete('posts/' + _id)
             .then(res => {
                 this.getPosts()
             })
+    }
+
+    // view active post in right side window
+    viewActivePost(_id) {
+        let data = _state.posts.find(a => a._id == _state.posts)
+        _setState('activePost', data)
     }
 
 }
