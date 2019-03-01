@@ -66,7 +66,7 @@ export default class PostController {
 
     // View a post (active post)
     viewActivePost(_id) {
-        _aps.viewActivePost(_id)
+        _ps.viewActivePost(_id)
     }
 
 }
