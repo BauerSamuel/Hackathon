@@ -9,12 +9,14 @@ let _myServer = axios.create({
 
 let _state = {
     posts: [],
-    activePost: {}
+    activePost: {},
+    comments: []
 }
 
 let _subscribers = {
     posts: [],
-    activePost: []
+    activePost: [],
+    comments: []
 }
 
 function _setState(data, val) {
@@ -70,14 +72,21 @@ export default class PostService {
         _setState('activePost', data)
     }
 
-    hot(_id) {
-        let data = _state.activePost.hot++
-        _setState('activePost', data)
+    //edit active post, increment hots
+    postHot(_id) {
+        let data = _state.activePost.postHot++
+        _myServer.put(`/posts/${_id}`, data)
+            .then(res => console.log(res.data))
+        this.getPosts()
     }
 
-    cool(_id) {
-        let data = _state.activePost.cool++
-        _setState('activePost', data)
+    //edit active post, increment cools
+    postCool(_id) {
+        let data = _state.activePost.postCool++
+        _myServer.put(`/posts/${_id}`, data)
+            .then(res => console.log(res.data))
+        this.getPosts()
     }
+
 
 }
