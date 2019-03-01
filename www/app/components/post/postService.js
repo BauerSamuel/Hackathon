@@ -78,17 +78,18 @@ export default class PostService {
         post.postHot++
         _myServer.put(`/posts/${_id}`, post)
             .then(res => {
-                console.log(res.data)
                 this.getPosts()
             })
     }
 
     //edit active post, increment cools
     postCool(_id) {
-        let data = _state.activePost.postCool++
-        _myServer.put(`/posts/${_id}`, data)
-            .then(res => console.log(res.data))
-        this.getPosts()
+        let post = _state.posts.find(p => p._id == _id)
+        post.postCool++
+        _myServer.put(`/posts/${_id}`, post)
+            .then(res => {
+                this.getPosts()
+            })
     }
 
 

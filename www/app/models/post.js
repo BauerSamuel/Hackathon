@@ -5,9 +5,9 @@ export default class Post {
         this.description = data.description
         this.image = data.image
         this.postHot = data.postHot || 0
-        this.postCool = 0
-        this.commentHot = 0
-        this.commentCool = 0
+        this.postCool = data.postCool || 0
+        this.commentHot = data.commentHot || 0
+        this.commentCool = data.commentCool || 0
     }
 
     getPostsTemplate() {
