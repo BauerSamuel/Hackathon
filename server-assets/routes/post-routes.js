@@ -36,5 +36,13 @@ router.delete('/:id', (req, res, next) => {
     .catch(err => res.status(400).send(err))
 })
 
+router.put('/:id', (req, res, next) => {
+  Posts.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(post => res.send(post))
+    .catch(err => {
+      res.status(400).send(err)
+    })
+
+})
 
 module.exports = { router }
