@@ -4,7 +4,7 @@ import Post from "../../models/post.js"
 
 let _myServer = axios.create({
     baseURL: '//localhost:3000/api'
-    
+
 })
 
 let _state = {
@@ -40,9 +40,10 @@ export default class PostService {
 
     // Get all posts
     getPosts() {
-        _myServer.get('posts')
+        _myServer.get('/posts')
             .then(res => {
                 let data = res.data.map(p => new Post(p))
+                setState('posts', data)
             })
     }
 
