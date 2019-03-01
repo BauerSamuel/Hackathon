@@ -5,9 +5,8 @@ let Schema = mongoose.Schema;
 let post =
   new Schema({
 
-    //must have either a img or a text can have both
-    description: { type: String },
-
+    title: { type: String, required: true },
+    description: { type: String, required: true }, //must have either a img or a text can have both
     imageURL: { type: String } //Pretty sure this is how to handle images in our db
 
   })
