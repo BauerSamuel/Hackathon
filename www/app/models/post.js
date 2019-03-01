@@ -13,9 +13,7 @@ export default class Post {
             <div class="card-body">
                 <h5 class="card-title">${this.title}</h5>
                 <p class="card-text">${this.description}</p>
-                <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View post</button>
-                <button class="btn btn-sm btn-success shadow" onclick="app.controllers.activePostController.agree('${this._id}')">Agree</button>
-                <button class="btn btn-sm btn-danger shadow" onclick="app.controllers.activePostController.disagree('${this._id}')">Disagree</button>
+                <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button>
                 </div>
         </div>
         `

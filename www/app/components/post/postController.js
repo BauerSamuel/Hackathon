@@ -21,7 +21,8 @@ function drawActivePost() {
                 <div class="card-body">
                     <h5 class="card-title">${active.title}</h5>
                     <p class="card-text">${active.description}</p>
-                    <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View post</button>
+                    <button class="btn btn-danger shadow" onclick="app.controllers.activePostController.agree('${this._id}')">Fire</button>
+                    <button class="btn btn-primary shadow" onclick="app.controllers.activePostController.disagree('${this._id}')">Snowflake</button>
                 </div>
         </div>
         `
