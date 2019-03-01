@@ -51,7 +51,7 @@ export default class PostService {
     // Add post
     addPost(post) {
         let newPost = new Post(post)
-        _myServer.post('posts', newPost)
+        _myServer.post('/posts', newPost)
             .then(res => {
                 this.getPosts()
             })
@@ -59,7 +59,7 @@ export default class PostService {
 
     // Delete post
     deletePost(_id) {
-        _myServer.delete('posts/' + _id)
+        _myServer.delete('/posts/' + _id)
             .then(res => {
                 this.getPosts()
             })
