@@ -1,11 +1,11 @@
 let express = require('express')
-
 let bodyParser = require('body-parser')
-
 let server = express()
+let cors = require('cors')
 
 let port = 3000
 
+server.use(cors())
 server.use(express.static(__dirname + "/www"))
 
 server.use(bodyParser.json())
