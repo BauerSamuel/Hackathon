@@ -4,6 +4,10 @@ export default class Post {
         this.title = data.title
         this.description = data.description
         this.image = data.image
+        this.postHot = 0
+        this.postCool = 0
+        this.commentHot = 0
+        this.commentCool = 0
     }
 
     getPostsTemplate() {
@@ -13,11 +17,26 @@ export default class Post {
             <div class="card-body">
                 <h5 class="card-title">${this.title}</h5>
                 <p class="card-text">${this.description}</p>
-                <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View post</button>
-                <button class="btn btn-sm btn-success shadow" onclick="app.controllers.activePostController.agree('${this._id}')">Agree</button>
-                <button class="btn btn-sm btn-danger shadow" onclick="app.controllers.activePostController.disagree('${this._id}')">Disagree</button>
+                <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button>
+                <button class="btn btn-sm btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Fire</button><p class="ml-3" id="hot-counter"># hot: ${this.postHot}</p>
+                <button class="btn btn-sm btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')">Cool</button><p class="ml -3" id="cool-counter"># cool: ${this.postCool}</p>
                 </div>
         </div>
         `
     }
+
+    getActivePostTemplate() {
+        return `
+        <div class="card" >
+            <img class="card-img-top" src="${this.image}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${this.title}</h5>
+                    <p class="card-text">${this.description}</p>
+                    <button class="btn btn-danger shadow" onclick="app.controllers.postController.hot('${this._id}')">Hot</button>
+                    <button class="btn btn-primary shadow" onclick="app.controllers.postController.cool('${this._id}')">Cool</button>
+                </div>
+        </div>
+        `
+    }
+
 }

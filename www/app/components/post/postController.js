@@ -13,23 +13,12 @@ function drawPosts() {
     document.querySelector('#main-thread').innerHTML = template
 }
 
+
 function drawActivePost() {
     let active = _ps.ActivePost
-    let template = `
-        <div class="card" >
-            <img class="card-img-top" src="${active.image}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">${active.title}</h5>
-                    <p class="card-text">${active.description}</p>
-                    <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View post</button>
-                </div>
-        </div>
-        `
-
-    document.querySelector('#active-post').innerHTML = template
-
-
+    document.querySelector('#active-post').innerHTML = active.getActivePostTemplate()
 }
+
 
 
 // Public
@@ -65,7 +54,15 @@ export default class PostController {
 
     // View a post (active post)
     viewActivePost(_id) {
-        _aps.viewActivePost(_id)
+        _ps.viewActivePost(_id)
+    }
+
+    postHot(_id) {
+        _ps.postHot(_id)
+    }
+
+    postCool(_id) {
+        _ps.postCool(_id)
     }
 
 }
