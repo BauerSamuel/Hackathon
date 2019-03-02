@@ -62,18 +62,19 @@ router.put('/:id/comments', (req, res, next) => {
 })
 
 //responsible for incrementing either hot or cold
-router.put('/:id/hot-cold', (req, res, next) => {
+router.put('/:id/hot-cool', (req, res, next) => {
   Posts.findById(req.params.id)
     .then(post => {
+      let prop = req.body.hot ? 'commentHot' : 'commentCool'
       for (let i = 0; i < post.comments.length; i++) {
         let c = post.comments[i];
         if (c._id.toString() == req.body._id) {
-          req.body.hot ? post.comments[i].commentHot++ : post.comments[i].commentCool++
+          post.comments[i][prop]++
         }
       }
       return post.save()
     })
-    .then(() => res.send("Post updated!"))
+    .then(() => res.send({ message: "Post updated!" }))
     .catch(e => res.status(400).send(e))
 })
 
