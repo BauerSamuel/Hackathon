@@ -13,7 +13,7 @@ let post =
 
     title: { type: String, required: true },
     description: { type: String, required: true }, //must have either a img or a text can have both
-    imageURL: { type: String }, //Pretty sure this is how to handle images in our db
+    image: { type: String }, //Pretty sure this is how to handle images in our db
     comments: [comment],
     postHot: { type: Number },
     postCool: { type: Number },

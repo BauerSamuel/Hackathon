@@ -43,6 +43,7 @@ export default class PostService {
     getPosts() {
         _myServer.get('/posts')
             .then(res => {
+                console.log(res)
                 let data = res.data.map(p => new Post(p))
                 _setState('posts', data)
             })
