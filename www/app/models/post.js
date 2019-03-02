@@ -17,9 +17,9 @@ export default class Post {
             <div class="card-body">
                 <h3 class="card-title">${this.title}</h3>
                 <h5 class="card-text">${this.description}</h5>
-                <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button><br>
-                <button class="btn btn-sm btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Fire</button><p class="ml-3" id="hot-counter"># hot: ${this.postHot}</p><br>
-                <button class="btn btn-sm btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')">Cool</button><p class="ml -3" id="cool-counter"># cool: ${this.postCool}</p>
+                <button class="mb-3 btn btn-lg btn-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button><br>
+                <button class="btn btn btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Hot</button><div id="hot-counter"># hot: ${this.postHot}</div><br>
+                <button class="btn btn btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')">Cool</button><div id="cool-counter"># cool: ${this.postCool}</div>
                 </div>
         </div>
         `
