@@ -73,6 +73,7 @@ export default class PostService {
             .then(res => {
                 this.getPosts()
             })
+        _setState('activePost', '')
     }
 
     // view active post in right side window
@@ -132,7 +133,6 @@ export default class PostService {
 sortState() {
     let quotient = (_state.Posts.comments.length + _state.Posts.postHot + _state.Posts.postCool)
     this.sortByActivity(quotient)
-}
 }
 
 let timeStamp = Date.now()
