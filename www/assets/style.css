@@ -75,3 +75,12 @@ input[type="text"].form-input::-webkit-input-placeholder {
 input[type="url"].form-input::-webkit-input-placeholder {
     color: #e92c2c;
 }
+
+#comment-input {
+    width: 88%;
+}
+
+li {
+    font-size: 28px;
+    color: #5d1515;
+}
