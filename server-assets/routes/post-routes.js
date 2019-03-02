@@ -55,6 +55,7 @@ router.put('/:id/comments', (req, res, next) => {
     })
     .then(() => res.send("Comment change successful."))
     .catch(err => {
+      console.log('bingo')
       res.status(400).send(err)
     })
 
