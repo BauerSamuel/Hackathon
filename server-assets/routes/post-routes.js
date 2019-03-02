@@ -37,7 +37,8 @@ router.delete('/:id', (req, res, next) => {
 
 //this put request is responsible for both posting and deleting comments
 router.put('/:id', (req, res, next) => {
-  Posts.findById(req.params._id)
+  console.log('server bingo')
+  Posts.findById(req.params.id)
     .then(post => {
       //req.body will always be comment
       if (!req.body._id) {
@@ -50,11 +51,11 @@ router.put('/:id', (req, res, next) => {
           if (c._id == req.body._id) post.comments.splice(i, 1)
         }
       }
+      res.send("Comment change successful.")
       return post.save()
     })
-    .then(() => res.send("Comment change successful."))
     .catch(err => {
-      console.log('bingo')
+      console.log('second bingo')
       res.status(400).send(err)
     })
 

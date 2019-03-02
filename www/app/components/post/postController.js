@@ -15,7 +15,12 @@ function drawPosts() {
 
 function drawActivePost() {
     let active = _ps.ActivePost
-    document.querySelector('#active-post').innerHTML = active.getActivePostTemplate()
+    let comments = active.comments
+    let template = ''
+    comments.forEach(c => {
+        template += `<li class="text-white comment-list mb-3">${c.description} <button onclick="app.controllers.postController.incremmentHotCold('${c._id}', 'hot')" class="btn btn-sm btn-danger shadow ml-4">Hot</button>  <span id="comment-hot-count"># of hot: ${c.commentHot}</span><button onclick="app.controllers.postController.incremmentHotCold('${c._id}')" class="btn btn-sm btn-primary shadow ml-1">Cool</button><span id="comment-cool-count"># of cools: ${c.commentCool}</span></li>`
+    })
+    document.querySelector('#active-post').innerHTML = active.getActivePostTemplate() + template
 }
 
 
@@ -72,5 +77,10 @@ export default class PostController {
         _ps.createComment(newComment)
         form.reset()
     }
+
+    incremmentHotCold(_id, hot) {
+        _ps.incremmentHotCold(_id, hot)
+    }
+
 
 }

@@ -41,9 +41,6 @@ export default class Post {
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
         </div>
-        <div>
-        <li>${this.comments}</li>
-        </div>
         `
     }
 
