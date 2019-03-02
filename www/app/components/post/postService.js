@@ -45,14 +45,15 @@ export default class PostService {
                 console.log(res)
                 let data = res.data.map(p => new Post(p))
                 _setState('posts', data)
-                this.sortByActivity()
             })
     }
 
     // Get active post
     getActivePost() {
+        debugger
         _myServer.get('/posts/' + _state.activePost._id)
             .then(res => {
+                debugger
                 let data = new Post(res.data)
                 _setState('activePost', data)
             })
@@ -60,7 +61,6 @@ export default class PostService {
 
     // Add post
     addPost(post) {
-        console.log('services does this work?')
         let newPost = new Post(post)
         _myServer.post('/posts', newPost)
             .then(res => {
@@ -74,8 +74,14 @@ export default class PostService {
         _myServer.delete(`/posts/${id}/${nickName.nickname}`)
             .then(res => {
                 this.getPosts()
+                if (id != _state.posts.find(p => p._id == id)) {
+                    _setState('activePost', '')
+                }
             })
-        _setState('activePost', '')
+            .catch(err => {
+                err.status(218).send('Not authorized')
+            })
+
     }
 
 
@@ -141,7 +147,6 @@ export default class PostService {
                 return 1
             }
         })
-        console.log(array)
         _setState('posts', array)
     }
 

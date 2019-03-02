@@ -6,7 +6,7 @@ let _ps = new PostService()
 function drawPosts() {
     let posts = _ps.Posts
     let template = ''
-    posts.forEach(p => {
+    posts.reverse().forEach(p => {
         template += p.getPostsTemplate()
     })
     document.querySelector('#main-thread').innerHTML = template
@@ -58,6 +58,7 @@ export default class PostController {
 
     // Delete a post
     deletePost(event) {
+        event.preventDefault()
         let form = event.target
         let nickName = {
             nickname: form.nickname.value
@@ -97,6 +98,14 @@ export default class PostController {
     // creates form to verify nickname to delete
     formDelete(_id) {
         document.getElementById('form-delete').style.display = "block"
+    }
+
+    sortByActivity() {
+        _ps.sortByActivity()
+    }
+
+    sortByTime() {
+        location.reload()
     }
 
 }

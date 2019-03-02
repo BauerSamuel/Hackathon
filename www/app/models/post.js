@@ -32,7 +32,7 @@ export default class Post {
 
     getActivePostTemplate() {
         return `
-        <div class="card comment" >
+        <div class="card comment" id="active-card">
             <img class="card-img-top" src="${this.image}" alt="Card image cap">
                 <div class="card-body">
                     <h1 class="card-title">${this.title}</h1>
@@ -43,7 +43,7 @@ export default class Post {
                     </div>
                     <form id="form-delete" class="form-inline px-3" onsubmit="app.controllers.postController.deletePost(event)">
                     <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="nickname" placeholder="Enter nickname...">
-                    <button type="submit" class="btn btn-success shadow mb-2">Confirm</i></button>
+                    <button type="submit" class="btn btn-success shadow mb-2">Confirm</button>
                     </form>
                 <form class="form-inline px-3" onsubmit="app.controllers.postController.createComment(event)">
                     <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="description" placeholder="Enter comment here...">
