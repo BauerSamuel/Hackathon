@@ -9,7 +9,7 @@ export default class Post {
         this.postCool = data.postCool || 0
         this.commentHot = data.commentHot || 0
         this.commentCool = data.commentCool || 0
-        this.nickname = data.nickname
+        this.date = data.date || Date.now()
     }
 
     getPostsTemplate() {
