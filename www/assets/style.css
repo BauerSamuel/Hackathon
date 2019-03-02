@@ -1,21 +1,32 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: #6d2727;
+    background-color: #551b1b;
     font-family: 'Do Hyeon', sans-serif;
 }
 
 .card {
-    background-color: #b44f4f;
-    border-radius: 10px;
+    background-color: #994141;
+    border-radius: 15px;
     border-width: thick;
     border-color: #fa9292;
     border-style: solid;
-    color: rgb(255, 233, 233);
+    color: rgb(252, 240, 240);
     box-shadow: 0 2px 10px black;
+    margin: 10px;
 }
 
-h3 {
-    text-shadow: 0 2px 5px black;
+.comment {
+    background-color: #994141;
+    border-radius: 15px;
+    border-width: 8px;
+    border-color: #fa9292;
+    border-style: solid;
+    color: rgb(252, 240, 240);
+    box-shadow: 0 2px 15px black;
+}
+
+h1, h3 {
+    text-shadow: 0 2px 3px black;
 }
 

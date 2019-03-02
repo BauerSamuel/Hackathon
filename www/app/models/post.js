@@ -17,10 +17,10 @@ export default class Post {
             <img class="card-img-top" src="${this.image}" alt="Card image cap">
             <div class="card-body">
                 <h3 class="card-title">${this.title}</h3>
-                <p class="card-text">${this.description}</p>
-                <button class="btn btn-outline-dark shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button>
-                <button class="btn btn-sm btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Fire</button><p class="ml-3" id="hot-counter"># hot: ${this.postHot}</p>
-                <button class="btn btn-sm btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')">Cool</button><p class="ml -3" id="cool-counter"># cool: ${this.postCool}</p>
+                <h5 class="card-text">${this.description}</h5>
+                <button class="mb-3 btn btn-lg btn-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button><br>
+                <button class="btn btn btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Hot</button><div id="hot-counter"># hot: ${this.postHot}</div><br>
+                <button class="btn btn btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')">Cool</button><div id="cool-counter"># cool: ${this.postCool}</div>
                 </div>
         </div>
         `
@@ -28,9 +28,10 @@ export default class Post {
 
     getActivePostTemplate() {
         return `
-        <div class="card" >
+        <div class="card comment" >
             <img class="card-img-top" src="${this.image}" alt="Card image cap">
                 <div class="card-body">
+<<<<<<< HEAD
                     <h5 class="card-title">${this.title}</h5>
                     <p class="card-text">${this.description}</p>
                     <form class="form-inline" onsubmit="app.controllers.postController.createComment(event)">
@@ -40,6 +41,12 @@ export default class Post {
                 </div>
                 <div>
                 <li>${this.comments}</li>
+=======
+                    <h1 class="card-title">${this.title}</h1>
+                    <h4 class="card-text">${this.description}</h4>
+                    <button class="btn btn-danger shadow" onclick="app.controllers.postController.hot('${this._id}')">Hot</button>
+                    <button class="btn btn-primary shadow" onclick="app.controllers.postController.cool('${this._id}')">Cool</button>
+>>>>>>> b2a376de1a39ec3bbe769fef35cd64b5129f0ba4
                 </div>
         </div>
         `
