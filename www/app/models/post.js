@@ -4,6 +4,7 @@ export default class Post {
         this.title = data.title
         this.description = data.description
         this.image = data.image
+        this.comments = data.comments
         this.postHot = data.postHot || 0
         this.postCool = data.postCool || 0
         this.commentHot = data.commentHot || 0
@@ -32,11 +33,17 @@ export default class Post {
                 <div class="card-body">
                     <h5 class="card-title">${this.title}</h5>
                     <p class="card-text">${this.description}</p>
-                    <button class="btn btn-danger shadow" onclick="app.controllers.postController.hot('${this._id}')">Hot</button>
-                    <button class="btn btn-primary shadow" onclick="app.controllers.postController.cool('${this._id}')">Cool</button>
+                    <form class="form-inline" onsubmit="app.controllers.postController.createComment(event)">
+                         <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="description" placeholder="Enter comment here...">
+                         <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+                </div>
+                <div>
+                <li>${this.comments}</li>
                 </div>
         </div>
         `
     }
+
 
 }
