@@ -114,9 +114,28 @@ export default class PostService {
     //create comment
     createComment(newComment) {
         let id = _state.activePost._id
-        _myServer.put(`/posts/${id}`, newComment)
+        _myServer.put(`/posts/${id}/comments`, newComment)
             .then(res => {
                 this.getActivePost()
+            })
+    }
+
+    //increment hot cold
+    incremmentHotCold(_id, hot) {
+        let commentVote = _state.activePost.comments.find(c => c._id == _id)
+        commentVote[hot] = true
+        _myServer.put(`/posts/${_id}`, commentVote)
+            .then(res => {
+                this.getPosts()
+            })
+    }
+
+    commentCool(_id) {
+        let post = _state.posts.find(p => p._id == _id)
+        post.commentCool++
+        _myServer.put(`/posts/${_id}`, post)
+            .then(res => {
+                this.getPosts()
             })
     }
 

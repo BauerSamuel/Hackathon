@@ -51,11 +51,11 @@ router.put('/:id/comments', (req, res, next) => {
           if (c._id == req.body._id) post.comments.splice(i, 1)
         }
       }
+      res.send("Comment change successful.")
       return post.save()
     })
-    .then(() => res.send("Comment change successful."))
     .catch(err => {
-      console.log('bingo')
+      console.log('second bingo')
       res.status(400).send(err)
     })
 
