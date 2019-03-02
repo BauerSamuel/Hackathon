@@ -48,6 +48,7 @@ img {
     height: 80px;
 }
 
-#image {
-    margin-top: 20px;
+.card-img-top {
+    width: auto;
+    height: 350px;
 }

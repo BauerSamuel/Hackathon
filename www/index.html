@@ -23,7 +23,7 @@
         <div class="row">
             <!-- Main thread -->
             <div class="col-5">
-                <form id="form" onsubmit="app.controllers.postController.addPost(event)">
+                <form id="form" class="m-3" onsubmit="app.controllers.postController.addPost(event)">
                     <div class="form-group">
                         <input type="text" name="title" id="formGroupExampleInput" placeholder="Title...">
                     </div>
@@ -31,9 +31,9 @@
                         <input type="text" name="description" id="formGroupExampleInput2" placeholder="Description...">
                     </div>
                     <div class="form-group">
-                        <input type="url" name="image" id="formGroupExampleInput3" placeholder="Image...">
+                        <input type="url" name="image" id="formGroupExampleInput3" placeholder="Image..." width="200" height="200">
                     </div>
-                    <button type="submit">Post your peeve!</button>
+                    <button class="btn btn-success" type="submit">Post your peeve!</button>
                 </form>
 
                 <div id="main-thread" class="d-flex flex-column justify-content-center">

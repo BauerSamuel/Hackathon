@@ -1,11 +1,9 @@
 export default class Post {
     constructor(data) {
-        console.log(data)
         this._id = data._id
         this.title = data.title
         this.description = data.description
-        this.image = data.image || '//placehold.it/200x200'
-        console.log(this.image)
+        this.image = data.image || '../assets/defaultImg.png'
         this.comments = data.comments
         this.postHot = data.postHot || 0
         this.postCool = data.postCool || 0
