@@ -52,7 +52,6 @@ export default class PostService {
     getActivePost() {
         _myServer.get('/posts/' + _state.activePost._id)
             .then(res => {
-                debugger
                 let data = new Post(res.data)
                 _setState('activePost', data)
             })
