@@ -23,6 +23,19 @@
         <div class="row">
             <!-- Main thread -->
             <div class="col-5">
+                <form id="form" onsubmit="app.controllers.postController.addPost(event)">
+                    <div class="form-group">
+                        <input type="text" name="title" id="formGroupExampleInput" placeholder="Title...">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="description"id="formGroupExampleInput2" placeholder="Description...">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="image"id="formGroupExampleInput3" placeholder="Image...">
+                    </div>
+                    <button type="submit">Post your peeve!</button>
+                </form>
+
                 <div id="main-thread" class="d-flex flex-column justify-content-center">
                     <!-- Main posts inserted here -->
                 </div>

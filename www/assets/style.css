@@ -17,7 +17,7 @@ body {
 }
 
 .comment {
-    background-color: #994141;
+    background-color: #8d3a3a;
     border-radius: 15px;
     border-width: 8px;
     border-color: #fa9292;
@@ -26,7 +26,8 @@ body {
     box-shadow: 0 2px 15px black;
 }
 
-h1, h3 {
+h1, h3, form {
+    color: white;
     text-shadow: 0 2px 3px black;
 }
 
