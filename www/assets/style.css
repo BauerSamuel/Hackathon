@@ -30,7 +30,17 @@ h1, h3 {
     text-shadow: 0 2px 3px black;
 }
 
-header {
+.title-text {
     font-size: 102px;
+    color: white;
+    text-shadow: 6px 4px 0px black;
+}
+
+header {
+    margin: 5px;
+}
+
+img {
+    background-size: none;
 }
 
