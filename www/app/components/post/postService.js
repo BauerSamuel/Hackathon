@@ -73,6 +73,7 @@ export default class PostService {
             .then(res => {
                 this.getPosts()
             })
+        _setState('activePost', '')
     }
 
     // view active post in right side window
@@ -125,15 +126,17 @@ export default class PostService {
             })
     }
 
-    sortByDate() {
-        let array = _state.posts
-        array.sort(){
-            var dateA = new Date(a.date).getTime();
-            var
-                let c = new Date(a.date);
-            let d = new Date(b.date);
-            return (c > d);
-        })
-    }
+    /*
+        sortByDate() {
+            let array = _state.posts
+            array.sort(){
+                var dateA = new Date(a.date).getTime();
+                var
+                    let c = new Date(a.date);
+                let d = new Date(b.date);
+                return (c > d);
+            })
+        }
+    */
 
 }
