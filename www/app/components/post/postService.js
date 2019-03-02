@@ -46,6 +46,7 @@ export default class PostService {
                 console.log(res)
                 let data = res.data.map(p => new Post(p))
                 _setState('posts', data)
+                this.sortByActivity()
             })
     }
 
@@ -126,15 +127,22 @@ export default class PostService {
             })
     }
 
-    // @ts-ignore
-    sortByActivity((a, b) => a - b);
 
 
-sortState() {
-    let quotient = (_state.Posts.comments.length + _state.Posts.postHot + _state.Posts.postCool)
-    this.sortByActivity(quotient)
+    sortByActivity() {
+        let array = this.Posts
+        array.sort((a, b) => {
+            let aquotient = (a.comments.length + a.postHot + a.postCool)
+            let bquotient = (b.comments.length + b.postHot + b.postCool)
+            let difference = aquotient - bquotient
+            if (difference > 0) {
+                return -1
+            } else {
+                return 1
+            }
+        })
+        console.log(array)
+        _setState('posts', array)
+    }
+
 }
-
-let timeStamp = Date.now()
-
-
