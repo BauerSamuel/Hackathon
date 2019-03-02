@@ -60,12 +60,11 @@ export default class PostService {
     getComments() {
         _myServer.get(`/comments/${_state.activePost._id}`)
             .then(res => {
-                let data = res.data.forEach(c => {
-
-                })
+                let data = new Post(res.data)
                 _setState('activePost', data)
             })
     }
+
 
     // Add post
     addPost(post) {
@@ -114,7 +113,7 @@ export default class PostService {
     //create comment
     createComment(newComment) {
         let id = _state.activePost._id
-        _myServer.post(`/posts/${id}`, newComment)
+        _myServer.put(`/posts/${id}`, newComment)
             .then(res => {
                 this.getActivePost()
             })
