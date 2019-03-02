@@ -28,9 +28,17 @@ router.post('', (req, res, next) => {
 })
 
 
-router.delete('/:id', (req, res, next) => {
-  Posts.findByIdAndDelete(req.params.id)
-    .then(() => res.send('Deleted post.'))
+router.delete('/:id/:nickname', (req, res, next) => {
+  Posts.findById(req.params.id)
+    .then(post => {
+      if (req.params.nickname == post.nickname) {
+        Posts.findByIdAndDelete(req.params.id)
+          .then(() => res.send('Deleted post.'))
+          .catch(err => res.status(400).send(err))
+      } else {
+        res.status(400).send("Unable to Delete")
+      }
+    })
     .catch(err => res.status(400).send(err))
 })
 
