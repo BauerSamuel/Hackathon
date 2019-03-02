@@ -17,7 +17,7 @@ let post =
     comments: [comment],
     postHot: { type: Number },
     postCool: { type: Number },
-    nickname: { type: String, required: true }
+    nickname: { type: String, required: true, default: 'Brett' }
   })
 
 //Still need to be sure when a post is deleted, all its comments its related to are also deleted.
