@@ -124,7 +124,7 @@ export default class PostService {
     incremmentHotCold(_id, hot) {
         let commentVote = _state.activePost.comments.find(c => c._id == _id)
         commentVote[hot] = true
-        _myServer.put(`/posts/${_id}/hot-cold`, commentVote)
+        _myServer.put(`/posts/${_id}/hot-cool`, commentVote)
             .then(res => {
                 this.getComments()
                 console.log('incremment bingo')
