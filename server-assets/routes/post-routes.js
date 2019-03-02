@@ -29,16 +29,30 @@ router.post('', (req, res, next) => {
 })
 
 
-
 router.delete('/:id', (req, res, next) => {
   Posts.findByIdAndDelete(req.params.id)
     .then(() => res.send('Deleted post.'))
     .catch(err => res.status(400).send(err))
 })
 
+//this put request is responsible for both posting and deleting comments
 router.put('/:id', (req, res, next) => {
-  Posts.findByIdAndUpdate(req.params._id, req.body, { new: true })
-    .then(post => res.send(post))
+  Posts.findById(req.params._id)
+    .then(post => {
+      //req.body will always be comment
+      if (!req.body._id) {
+        //create/posting a comment
+        post.comments.push(req.body)
+      } else {
+        //deleting this comment
+        for (let i = 0; i < post.comments.length; i++) {
+          let c = post.comments[i]
+          if (c._id == req.body._id) post.comments.splice(i, 1)
+        }
+      }
+      return post.save()
+    })
+    .then(() => res.send("Comment change successful."))
     .catch(err => {
       res.status(400).send(err)
     })
