@@ -36,8 +36,8 @@ router.delete('/:id', (req, res, next) => {
 })
 
 //this put request is responsible for both posting and deleting comments
-router.put('/:id', (req, res, next) => {
-<<<<<<< HEAD
+router.put('/:id/comments', (req, res, next) => {
+  debugger
   Posts.findById(req.params._id)
     .then(post => {
       //req.body will always be comment
