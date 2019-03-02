@@ -40,7 +40,7 @@ export default class Post {
                 </div>
                 <form class="form-inline px-3" onsubmit="app.controllers.postController.createComment(event)">
                     <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="description" placeholder="Enter comment here...">
-                    <button type="submit" class="btn btn-success mb-2"><i class="fas fa-check"></i></button>
+                    <button type="submit" class="btn btn-success shadow mb-2"><i class="fas fa-check"></i></button>
                 </form>
         </div>
         `
