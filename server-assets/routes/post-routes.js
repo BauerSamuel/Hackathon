@@ -20,7 +20,6 @@ router.get('/:id', (req, res, next) => {
 })
 
 
-
 router.post('', (req, res, next) => {
   Posts.create(req.body)
     .then(post => res.send(post))
@@ -35,8 +34,35 @@ router.delete('/:id', (req, res, next) => {
     .catch(err => res.status(400).send(err))
 })
 
+// router.put('/:id/comments/', (req, res, next) => {
+//   Posts.findById(req.params._id)
+//     .then(post => {
+//       //req.body will always be comment
+//       //create/posting a comment
+//       res.send("Comment change successful.")
+//       return post.save()
+//     })
+//     .catch(err => {
+//       console.log('second bingo')
+//       res.status(400).send(err)
+//     })
+
+// })
+
+
+router.put('/:id', (req, res, next) => {
+  debugger
+  Posts.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(p => {
+      res.status(200).send(p)
+    })
+    .catch(err => {
+      res.status(500).send(err)
+    })
+})
+
 //this put request is responsible for both posting and deleting comments
-router.put('/:id/comments', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   debugger
   Posts.findById(req.params._id)
     .then(post => {
