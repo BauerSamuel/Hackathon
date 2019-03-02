@@ -68,13 +68,15 @@ export default class PostService {
     }
 
     // Delete post
-    deletePost(_id) {
-        _myServer.delete('/posts/' + _id)
+    deletePost(nickName) {
+        let id = _state.activePost._id
+        _myServer.delete(`/posts/${id}/${nickName.nickname}`)
             .then(res => {
                 this.getPosts()
             })
         _setState('activePost', '')
     }
+
 
     // view active post in right side window
     viewActivePost(_id) {
@@ -125,6 +127,12 @@ export default class PostService {
                 console.log('incremment bingo')
             })
     }
+
+    // creates form to verify nickname to delete
+    // formDelete(_id) {
+    //     let active = this.ActivePost
+    //     _setState('activePost', active)
+    // }
 
     /*
         sortByDate() {
