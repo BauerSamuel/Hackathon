@@ -26,7 +26,7 @@ body {
     box-shadow: 0 2px 15px black;
 }
 
-h1, h3, form {
+h1, h2, h3, form {
     color: white;
     text-shadow: 0 2px 3px black;
 }
@@ -36,7 +36,11 @@ h1, h3, form {
     color: white;
     text-shadow: 10px 5px 0px black;
     padding-left: 10px;
-    transform: rotate(4deg)
+    transform: rotate(4deg);
+}
+
+.subtitle-text {
+    padding-left: 20px;
 }
 
 header {
@@ -59,12 +63,15 @@ header {
 
 input {
     width: 100%;
-    box-shadow: 0 2px 5px black;
+    box-shadow: 2px 2px 3px black;
 }
 
 input[type="text"].form-input::-webkit-input-placeholder {
     width: 100%;
     font-weight: 200px;
- 
-    color: #5d1515
-   }
+    color: #e92c2c
+}
+   
+input[type="url"].form-input::-webkit-input-placeholder {
+    color: #e92c2c;
+}
