@@ -35,12 +35,12 @@ export default class Post {
                 <div class="card-body">
                     <h1 class="card-title">${this.title}</h1>
                     <h4 class="card-text">${this.description}</h4>
-                    <button class="btn btn-danger shadow" onclick="app.controllers.postController.hot('${this._id}')"><i class="fas fa-fire"></i></button>
-                    <button class="btn btn-primary shadow" onclick="app.controllers.postController.cool('${this._id}')"><i class="fas fa-snowflake"></i></button>
+                    <button class="btn btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span> ${this.postHot} </span></button>
+                    <button class="btn btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span> ${this.postCool} </span></button>
                 </div>
                 <form class="form-inline px-3" onsubmit="app.controllers.postController.createComment(event)">
                     <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="description" placeholder="Enter comment here...">
-                    <button type="submit" class="btn btn-success mb-2"><i class="fas fa-check"></i></button>
+                    <button type="submit" class="btn btn-success shadow mb-2"><i class="fas fa-check"></i></button>
                 </form>
         </div>
         `
