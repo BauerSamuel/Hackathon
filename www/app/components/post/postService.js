@@ -128,23 +128,15 @@ export default class PostService {
             })
     }
 
-    // creates form to verify nickname to delete
-    // formDelete(_id) {
-    //     let active = this.ActivePost
-    //     _setState('activePost', active)
-    // }
+    // @ts-ignore
+    sortByActivity((a, b) => a - b);
 
-    /*
-        sortByDate() {
-            let array = _state.posts
-            array.sort(){
-                var dateA = new Date(a.date).getTime();
-                var
-                    let c = new Date(a.date);
-                let d = new Date(b.date);
-                return (c > d);
-            })
-        }
-    */
 
+sortState() {
+    let quotient = (_state.Posts.comments.length + _state.Posts.postHot + _state.Posts.postCool)
+    this.sortByActivity(quotient)
 }
+
+let timeStamp = Date.now()
+
+
