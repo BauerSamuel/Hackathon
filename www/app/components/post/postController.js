@@ -1,8 +1,6 @@
 import PostService from "./postService.js";
 
-
 // Private
-
 let _ps = new PostService()
 
 function drawPosts() {
@@ -46,7 +44,6 @@ export default class PostController {
 
     // Add a post
     addPost(event) {
-
         event.preventDefault()
         let form = event.target
         let newPost = {
@@ -101,6 +98,5 @@ export default class PostController {
     formDelete(_id) {
         document.getElementById('form-delete').style.display = "block"
     }
-
 
 }

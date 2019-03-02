@@ -1,7 +1,6 @@
 import Post from "../../models/post.js"
 
 // Private
-
 let _myServer = axios.create({
     baseURL: '//localhost:3000/api'
 
@@ -61,6 +60,7 @@ export default class PostService {
 
     // Add post
     addPost(post) {
+        console.log('services does this work?')
         let newPost = new Post(post)
         _myServer.post('/posts', newPost)
             .then(res => {
@@ -128,8 +128,6 @@ export default class PostService {
                 console.log('incremment bingo')
             })
     }
-
-
 
     sortByActivity() {
         let array = this.Posts
