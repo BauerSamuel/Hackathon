@@ -10,7 +10,7 @@ let comment = new Schema({
 
 let post =
   new Schema({
-
+    date: { type: Date, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true }, //must have either a img or a text can have both
     image: { type: String }, //Pretty sure this is how to handle images in our db
