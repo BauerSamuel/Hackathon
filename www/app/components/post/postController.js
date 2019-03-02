@@ -26,7 +26,6 @@ function drawActivePost() {
     document.querySelector('#active-post').innerHTML = active.getActivePostTemplate() + template
 }
 
-
 // Public
 export default class PostController {
     constructor() {
