@@ -58,15 +58,6 @@ export default class PostService {
             })
     }
 
-    getComments() {
-        _myServer.get(`/comments/${_state.activePost._id}`)
-            .then(res => {
-                let data = new Post(res.data)
-                _setState('activePost', data)
-            })
-    }
-
-
     // Add post
     addPost(post) {
         let newPost = new Post(post)
@@ -97,7 +88,9 @@ export default class PostService {
         post.postHot++
         _myServer.put(`/posts/${_id}`, post)
             .then(res => {
+                console.log('return incrementer bingo')
                 this.getPosts()
+                this.getActivePost()
             })
     }
 
@@ -108,6 +101,7 @@ export default class PostService {
         _myServer.put(`/posts/${_id}`, post)
             .then(res => {
                 this.getPosts()
+                this.getActivePost()
             })
     }
 
@@ -124,9 +118,9 @@ export default class PostService {
     incremmentHotCold(_id, hot) {
         let commentVote = _state.activePost.comments.find(c => c._id == _id)
         commentVote[hot] = true
-        _myServer.put(`/posts/${_id}/hot-cold`, commentVote)
+        _myServer.put(`/posts/${_state.activePost._id}/hot-cool`, commentVote)
             .then(res => {
-                this.getComments()
+                this.getActivePost()
                 console.log('incremment bingo')
             })
     }
