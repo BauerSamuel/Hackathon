@@ -48,10 +48,29 @@ export default class PostService {
             })
     }
 
+    // Get active post
+    getActivePost() {
+        _myServer.get('/posts/' + _state.activePost._id)
+            .then(res => {
+                let data = new Post(res.data)
+                _setState('activePost', data)
+            })
+    }
+
+    getComments() {
+        _myServer.get(`/comments/${_state.activePost._id}`)
+            .then(res => {
+                let data = res.data.forEach(c => {
+
+                })
+                _setState('activePost', data)
+            })
+    }
+
     // Add post
     addPost(post) {
         let newPost = new Post(post)
-        _myServer.post('posts', newPost)
+        _myServer.post('/posts', newPost)
             .then(res => {
                 this.getPosts()
             })
@@ -59,7 +78,7 @@ export default class PostService {
 
     // Delete post
     deletePost(_id) {
-        _myServer.delete('posts/' + _id)
+        _myServer.delete('/posts/' + _id)
             .then(res => {
                 this.getPosts()
             })
@@ -74,18 +93,31 @@ export default class PostService {
 
     //edit active post, increment hots
     postHot(_id) {
-        let data = _state.activePost.postHot++
-        _myServer.put(`/posts/${_id}`, data)
-            .then(res => console.log(res.data))
-        this.getPosts()
+        let post = _state.posts.find(p => p._id == _id)
+        post.postHot++
+        _myServer.put(`/posts/${_id}`, post)
+            .then(res => {
+                this.getPosts()
+            })
     }
 
     //edit active post, increment cools
     postCool(_id) {
-        let data = _state.activePost.postCool++
-        _myServer.put(`/posts/${_id}`, data)
-            .then(res => console.log(res.data))
-        this.getPosts()
+        let post = _state.posts.find(p => p._id == _id)
+        post.postCool++
+        _myServer.put(`/posts/${_id}`, post)
+            .then(res => {
+                this.getPosts()
+            })
+    }
+
+    //create comment
+    createComment(newComment) {
+        let id = _state.activePost._id
+        _myServer.post(`/posts/${id}`, newComment)
+            .then(res => {
+                this.getActivePost()
+            })
     }
 
 
