@@ -48,7 +48,7 @@ router.put('/:id/comments', (req, res, next) => {
         //deleting this comment
         for (let i = 0; i < post.comments.length; i++) {
           let c = post.comments[i]
-          if (c._id == req.body._id) post.comments.splice(i, 1)
+          if (c._id.toString() == req.body._id) post.comments.splice(i, 1)
         }
       }
       res.send("Comment change successful.")
@@ -65,24 +65,11 @@ router.put('/:id/comments', (req, res, next) => {
 router.put('/:id/hot-cold', (req, res, next) => {
   Posts.findById(req.params.id)
     .then(post => {
-      if (req.body.hot) {
-        for (let i = 0; i < post.comments.length; i++) {
-          let c = post.comments[i];
-          if (c._id == req.body._id) post.comments[i].commentHot++
+      for (let i = 0; i < post.comments.length; i++) {
+        let c = post.comments[i];
+        if (c._id.toString() == req.body._id) {
+          req.body.hot ? post.comments[i].commentHot++ : post.comments[i].commentCool++
         }
-
-        //increment hot
-        //find the element in the array, post.comments, of comments and update
-        //req.body is a complete comment object so will have an _id
-
-      } else {
-        for (let i = 0; i < post.comment.length; i++) {
-          let c = post.comments[i];
-          if (c._id == req.body._id) post.comments[i].commentCool++;
-        }
-        //increment cold
-        //find the element in the array of comments and update
-
       }
       return post.save()
     })
