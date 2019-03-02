@@ -50,7 +50,6 @@ export default class PostService {
 
     // Get active post
     getActivePost() {
-        debugger
         _myServer.get('/posts/' + _state.activePost._id)
             .then(res => {
                 debugger
