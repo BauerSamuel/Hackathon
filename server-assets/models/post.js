@@ -4,8 +4,8 @@ let Schema = mongoose.Schema;
 
 let comment = new Schema({
   description: { type: String, required: true },
-  commentHot: { type: Number },
-  commentCool: { type: Number },
+  commentHot: { type: Number, default: 0 },
+  commentCool: { type: Number, default: 0 }
 })
 
 let post =
