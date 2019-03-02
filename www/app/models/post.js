@@ -18,10 +18,12 @@ export default class Post {
             <div class="card-body">
                 <h3 class="card-title">${this.title}</h3>
                 <h5 class="card-text">${this.description}</h5>
-                <button class="mb-3 btn btn-lg btn-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button><br>
-                <button class="btn btn btn-danger shadow" onclick="app.controllers.postController.postHot('${this._id}')">Hot <i class="fas fa-fire"></i></button><div id="hot-counter"># hot: ${this.postHot}</div>
-                <button class="btn btn btn-primary shadow" onclick="app.controllers.postController.postCool('${this._id}')">Cool <i class="fas fa-snowflake"></i></button><div id="cool-counter"># cool: ${this.postCool}</div>
-                </div>
+                <div>
+                <button class="mb-3 btn btn-lg btn-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View Peeve</button>
+                <button class="btn btn btn-danger shadow mb-3 ml-1" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span id="hot-counter"> ${this.postHot} </span></button>
+                <button class="btn btn btn-primary shadow mb-3 ml-1" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span id="cool-counter"> ${this.postCool} </span></button>
+                </>
+            </div>    
         </div>
         `
     }
