@@ -1,12 +1,12 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: #551b1b;
+    background-image: linear-gradient(to bottom right, #551b1b, #fa2e2e); ;
     font-family: 'Do Hyeon', sans-serif;
 }
 
 .card {
-    background-color: #994141;
+    background-color: #5d1515;
     border-radius: 15px;
     border-width: thick;
     border-color: #fa9292;
@@ -33,7 +33,9 @@ h1, h3 {
 .title-text {
     font-size: 102px;
     color: white;
-    text-shadow: 6px 4px 0px black;
+    text-shadow: 10px 5px 0px black;
+    padding-left: 10px;
+    transform: rotate(4deg)
 }
 
 header {
@@ -41,6 +43,10 @@ header {
 }
 
 img {
-    background-size: none;
+    width: 80px;
+    height: 80px;
 }
 
+#image {
+    margin-top: 20px;
+}
