@@ -41,9 +41,6 @@ export default class Post {
                     <button type="submit" class="btn btn-success mb-2"><i class="fas fa-check"></i></button>
                 </form>
         </div>
-        <div>
-        <li>${this.comments}</li>
-        </div>
         `
     }
 
