@@ -13,7 +13,6 @@ function drawPosts() {
     document.querySelector('#main-thread').innerHTML = template
 }
 
-
 function drawActivePost() {
     let active = _ps.ActivePost
     document.querySelector('#active-post').innerHTML = active.getActivePostTemplate()
@@ -62,6 +61,16 @@ export default class PostController {
 
     postCool(_id) {
         _ps.postCool(_id)
+    }
+
+    createComment(event) {
+        event.preventDefault()
+        let form = event.target
+        let newComment = {
+            description: form.description.value
+        }
+        _ps.createComment(newComment)
+        form.reset()
     }
 
 }

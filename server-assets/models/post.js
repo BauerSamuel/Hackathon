@@ -3,9 +3,9 @@ let mongoose = require('mongoose')
 let Schema = mongoose.Schema;
 
 let comment = new Schema({
+  description: { type: String, required: true },
   commentHot: { type: Number },
   commentCool: { type: Number },
-  description: { type: String, required: true },
 })
 
 let post =
@@ -16,7 +16,7 @@ let post =
     imageURL: { type: String }, //Pretty sure this is how to handle images in our db
     comments: [comment],
     postHot: { type: Number },
-    postCool: { type: Number }
+    postCool: { type: Number },
   })
 
 //Still need to be sure when a post is deleted, all its comments its related to are also deleted.

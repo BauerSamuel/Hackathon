@@ -48,6 +48,24 @@ export default class PostService {
             })
     }
 
+    // Get active post
+    getActivePost() {
+        _myServer.get('/posts/' + _state.activePost._id)
+            .then(res => {
+                let data = new Post(res.data)
+                _setState('activePost', data)
+            })
+    }
+
+    getComments() {
+        _myServer.get(`/comments/${_state.activePost._id}`)
+            .then(res => {
+                let data = new Post(res.data)
+                _setState('activePost', data)
+            })
+    }
+
+
     // Add post
     addPost(post) {
         let newPost = new Post(post)
@@ -89,6 +107,15 @@ export default class PostService {
         _myServer.put(`/posts/${_id}`, post)
             .then(res => {
                 this.getPosts()
+            })
+    }
+
+    //create comment
+    createComment(newComment) {
+        let id = _state.activePost._id
+        _myServer.put(`/posts/${id}`, newComment)
+            .then(res => {
+                this.getActivePost()
             })
     }
 
