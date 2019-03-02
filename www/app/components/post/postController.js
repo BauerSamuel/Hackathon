@@ -1,5 +1,6 @@
 import PostService from "./postService.js";
 
+
 // Private
 
 let _ps = new PostService()
@@ -45,20 +46,28 @@ export default class PostController {
 
     // Add a post
     addPost(event) {
+
         event.preventDefault()
         let form = event.target
         let newPost = {
             title: form.title.value,
             description: form.description.value,
-            image: form.image.value
+            image: form.image.value,
+            nickname: form.name.value
         }
         _ps.addPost(newPost)
         form.reset()
     }
 
     // Delete a post
-    deletePost(_id) {
-        _ps.deletePost(_id)
+    deletePost(event) {
+        let form = event.target
+        let nickName = {
+            nickname: form.nickname.value
+
+        }
+        _ps.deletePost(nickName)
+        form.reset()
     }
 
     // View a post (active post)
@@ -86,6 +95,11 @@ export default class PostController {
 
     incremmentHotCold(_id, hot) {
         _ps.incremmentHotCold(_id, hot)
+    }
+
+    // creates form to verify nickname to delete
+    formDelete(_id) {
+        document.getElementById('form-delete').style.display = "block"
     }
 
 

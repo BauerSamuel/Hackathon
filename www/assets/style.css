@@ -85,3 +85,7 @@ li {
     font-size: 2rem;
     color: #5d1515;
 }
+
+#form-delete {
+    display: none;
+}
