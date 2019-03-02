@@ -23,7 +23,7 @@ router.get('/:id', (req, res, next) => {
 router.post('', (req, res, next) => {
   Posts.create(req.body)
     .then(post => res.send(post))
-    .catch(err => res.status(400).send(err))
+    .catch(err => res.status(400).send("Not happenin" + err))
 
 })
 
