@@ -84,12 +84,24 @@ input[type="url"].form-input::-webkit-input-placeholder {
     color: #e92c2c;
 }
 
+input[type="text"]#comment-input::-webkit-input-placeholder {
+    width: 100%;
+    font-weight: 200px;
+    color: rgb(4, 153, 4);
+}
+
+input[type="text"]#delete-input::-webkit-input-placeholder {
+    width: 100%;
+    font-weight: 200px;
+    color: #e92c2c;
+}
+
 .post-input {
     width: 30.1vw;
 }
 
-#comment-input {
-    width: 60%;
+.active-inputs {
+    width: 400px !important;
 }
 
 #form-delete {

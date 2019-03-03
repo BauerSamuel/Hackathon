@@ -42,11 +42,11 @@ export default class Post {
                     <button class="btn btn-lg btn-dark shadow ml-5" onclick="app.controllers.postController.formDelete('${this._id}')">Delete Post </button>
                     </div>
                     <form id="form-delete" class="form-inline px-3" onsubmit="app.controllers.postController.deletePost(event)">
-                    <input type="text" class="form-control mb-2 mr-sm-2 mt-1" id="comment-input" name="nickname" placeholder="Enter nickname to delete post...">
-                    <button type="submit" class="btn btn-success shadow mb-2 mt-1">Confirm</button>
+                    <input type="text" class="form-control mb-2 mr-sm-2 mt-1 active-inputs" id="delete-input" name="nickname" placeholder="Enter nickname to delete post...">
+                    <button type="submit" class="btn btn-danger shadow mb-2 mt-1">Confirm</button>
                     </form>
                 <form class="form-inline px-3" id="comment-input-hide" onsubmit="app.controllers.postController.createComment(event)">
-                    <input type="text" class="form-control mb-4 mr-sm-2" id="comment-input" name="description" placeholder="Enter comment here...">
+                    <input type="text" class="form-control mb-4 mr-sm-2 active-inputs" id="comment-input" name="description" placeholder="Enter comment here...">
                     <button type="submit" class="btn btn-success shadow mb-4 ml-1"><i class="fas fa-check"></i></button>
                 </form>
                  
