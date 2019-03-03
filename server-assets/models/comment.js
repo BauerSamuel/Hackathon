@@ -9,5 +9,4 @@ let comment = new Schema({
 
 //Still need to be sure when a post is deleted, all its comments its related to are also deleted.
 
-
 module.exports = mongoose.model('Comment', comment)

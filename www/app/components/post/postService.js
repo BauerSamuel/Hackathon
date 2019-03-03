@@ -3,7 +3,6 @@ import Post from "../../models/post.js"
 // Private
 let _myServer = axios.create({
     baseURL: '//localhost:3000/api'
-
 })
 
 let _state = {
@@ -36,6 +35,10 @@ export default class PostService {
 
     get ActivePost() {
         return _state.activePost
+    }
+
+    get Comments() {
+        return _state.comments
     }
 
     // Get all posts
@@ -79,9 +82,7 @@ export default class PostService {
             .catch(err => {
                 err.status(218).send('Not authorized')
             })
-
     }
-
 
     // view active post in right side window
     viewActivePost(_id) {
@@ -96,7 +97,6 @@ export default class PostService {
         post.postHot++
         _myServer.put(`/posts/${_id}`, post)
             .then(res => {
-                console.log('return incrementer bingo')
                 this.getPosts()
                 this.getActivePost()
             })
@@ -119,6 +119,7 @@ export default class PostService {
         _myServer.put(`/posts/${id}/comments`, newComment)
             .then(res => {
                 this.getActivePost()
+                _setState('comments', newComment)
             })
     }
 

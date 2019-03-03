@@ -6,21 +6,18 @@ router.get('', (req, res, next) => {
   Posts.find({})
     .then(posts => res.send(posts))
     .catch(err => res.status(400).send(err))
-
 })
 
 router.get('/:id', (req, res, next) => {
   Posts.findById(req.params.id)
     .then(post => res.send(post))
     .catch(err => res.status(400).send(err))
-
 })
 
 router.post('', (req, res, next) => {
   Posts.create(req.body)
     .then(post => res.send(post))
     .catch(err => res.status(400).send("Not happenin" + err))
-
 })
 
 router.delete('/:id/:nickname', (req, res, next) => {
@@ -36,7 +33,6 @@ router.delete('/:id/:nickname', (req, res, next) => {
     })
     .catch(err => res.status(400).send(err))
 })
-
 
 router.put('/:id', (req, res, next) => {
   Posts.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
@@ -67,10 +63,8 @@ router.put('/:id/comments', (req, res, next) => {
       return post.save()
     })
     .catch(err => {
-      console.log('second bingo')
       res.status(400).send(err)
     })
-
 })
 
 //responsible for incrementing either hot or cold

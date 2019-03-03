@@ -11,32 +11,34 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Welcome to PeevePost</title>
+    <title>PeevePost</title>
 </head>
 
 <body>
     <div class="container-fluid">
+
         <header class="row d-flex justify-content-center">
             <img id="image" src="assets/PeevePostImg.png">
-            <h1 class="title-text">PeevePost!</h1>
+            <h1 class="title-text">PeevePost</h1>
             <h3 class="subtitle-text d-flex align-items-center">What's YOUR pet peeve?</h3>
         </header>
+
         <div class="row">
             <!-- Main thread -->
             <div class="col-5">
                 <form id="form" class="m-3" onsubmit="app.controllers.postController.addPost(event)">
                     <div class="form-group">
-                        <input type="text" name="title" class="form-input" placeholder=" Title..." required>
+                        <input type="text" name="title" class="form-input" placeholder=" Title... required" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="description" class="form-input" placeholder=" Description..." required>
+                        <input type="text" name="description" class="form-input" placeholder=" Description... required" required>
                     </div>
                     <div class="form-group">
-                        <input type="url" name="image" class="form-input" placeholder=" Image URL..." width="200"
+                        <input type="url" name="image" class="form-input" placeholder=" Image URL... not required, but encouraged" width="200"
                             height="200">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="nickname" class="form-input" placeholder=" Nickname..." width="200"
+                        <input type="text" name="nickname" class="form-input" placeholder=" Nickname... required" width="200"
                             height="200" required>
                     </div>
                     <button class="btn btn-success shadow" type="submit">Post your peeve!</button>
@@ -47,8 +49,7 @@
                         type="button">Sort by most recent</button>
                 </form>
 
-
-
+                <!-- Main posts -->
                 <div id="main-thread" class="d-flex flex-column justify-content-center">
                     <!-- Main posts inserted here -->
                 </div>
@@ -61,15 +62,14 @@
                 </div>
                 <div>
                     <ul id="comments">
-                        <!--  -->
+                        <!-- comments inserted here -->
                     </ul>
                 </div>
             </div>
+
         </div>
-
-
-
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script type="module" src="app/main.js"></script>
 </body>

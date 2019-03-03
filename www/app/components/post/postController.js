@@ -29,11 +29,13 @@ function drawActivePost() {
     }
 }
 
+
 // Public
 export default class PostController {
     constructor() {
         _ps.addSubscriber('posts', drawPosts)
         _ps.addSubscriber('activePost', drawActivePost)
+        _ps.addSubscriber('comments', drawActivePost)
         _ps.getPosts()
     }
 
