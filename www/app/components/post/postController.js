@@ -31,6 +31,22 @@ function drawActivePost() {
     }
 }
 
+$(function scrollToTop() {
+    $('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname ==
+            this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 2500);
+                return false;
+            }
+        }
+    });
+});
+
 
 // Public
 export default class PostController {
@@ -79,6 +95,7 @@ export default class PostController {
 
     postHot(_id) {
         _ps.postHot(_id)
+        document.getElementById('hot-vote').disabled = true
     }
 
     postCool(_id) {
@@ -102,6 +119,7 @@ export default class PostController {
     // creates form to verify nickname to delete
     formDelete(_id) {
         document.getElementById('form-delete').style.display = "inline"
+        document.getElementById('comment-input-hide').style.display = "none"
     }
 
     sortByActivity() {
@@ -111,5 +129,7 @@ export default class PostController {
     sortByTime() {
         location.reload()
     }
+
+
 
 }
