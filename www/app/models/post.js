@@ -10,15 +10,16 @@ export default class Post {
         this.commentHot = data.commentHot || 0
         this.commentCool = data.commentCool || 0
         this.nickname = data.nickname
-        this.date = data.date || Date.now()
+        this.date = data.date || new Date()
     }
+
 
     getPostsTemplate() {
         return `
         <div class="card">
             <img class="card-img-top" src="${this.image}" alt="Card image cap">
             <div class="card-body">
-                <h3 class="card-title">${this.title}</h3>
+                <h3 class="card-title">${this.title} <span class="ml-5" id="time-stamp"> ${this.date} </span></h3>
                 <h5 class="card-text">${this.description}</h5>
                 <div>
             <a href="#active-top"><button class="mt-3 mb-1 btn btn-lg btn-outline-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View peeve</button></a>
@@ -42,8 +43,8 @@ export default class Post {
                     <button class="btn btn-lg btn-dark shadow ml-5" onclick="app.controllers.postController.formDelete('${this._id}')">Delete Post </button>
                     </div>
                     <form id="form-delete" class="form-inline px-3" onsubmit="app.controllers.postController.deletePost(event)">
-                    <input type="text" class="form-control mb-2 mr-sm-2 mt-1 active-inputs" id="delete-input" name="nickname" placeholder="Enter nickname to delete post...">
-                    <button type="submit" class="btn btn-danger shadow mb-2 mt-1">Confirm</button>
+                    <input type="text" class="form-control mb-4 mr-sm-2 mt-1 active-inputs" id="delete-input" name="nickname" placeholder="Enter nickname to delete post...">
+                    <button type="submit" class="btn btn-warning shadow mb-4 mt-1">Confirm</button>
                     </form>
                 <form class="form-inline px-3" id="comment-input-hide" onsubmit="app.controllers.postController.createComment(event)">
                     <input type="text" class="form-control mb-4 mr-sm-2 active-inputs" id="comment-input" name="description" placeholder="Enter comment here...">

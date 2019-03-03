@@ -139,7 +139,7 @@ export default class PostService {
         array.sort((a, b) => {
             let aquotient = (a.comments.length + a.postHot + a.postCool)
             let bquotient = (b.comments.length + b.postHot + b.postCool)
-            let difference = aquotient - bquotient
+            let difference = bquotient - aquotient
             if (difference > 0) {
                 return -1
             } else {

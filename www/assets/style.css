@@ -130,4 +130,10 @@ footer h2 {
     margin-top: 10vh;
 }
 
+#time-stamp {
+float: right;
+font-size: 0.9rem;
+margin-top: 2vh;
+}
+
 
