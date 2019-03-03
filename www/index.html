@@ -25,28 +25,30 @@
 
         <div class="row">
             <!-- Main thread -->
-            <div class="col-5">
+            <div class="col-7">
                 <form id="form" class="m-3" onsubmit="app.controllers.postController.addPost(event)">
                     <div class="form-group">
-                        <input type="text" name="title" class="form-input" placeholder=" Title... required" required>
+                        <input type="text" name="title" class="form-input post-input mt-1"
+                            placeholder=" Title... required" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="description" class="form-input" placeholder=" Description... required" required>
+                        <input type="text" name="description" class="form-input post-input"
+                            placeholder=" Description... required" required>
                     </div>
                     <div class="form-group">
-                        <input type="url" name="image" class="form-input" placeholder=" Image URL... not required, but encouraged" width="200"
-                            height="200">
+                        <input type="url" name="image" class="form-input post-input"
+                            placeholder=" Image URL... not required, but encouraged" width="200" height="200">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="nickname" class="form-input" placeholder=" Nickname... required" width="200"
-                            height="200" required>
+                        <input type="text" name="nickname" class="form-input post-input"
+                            placeholder=" Nickname... required" width="200" height="200" required>
                     </div>
-                    <button class="btn btn-success shadow" type="submit">Post your peeve!</button>
+                    <button class="btn btn-outline-success shadow" type="submit">Post your peeve!</button>
                     <button onclick="app.controllers.postController.sortByActivity()"
-                        class="btn btn-primary shadow ml-3" type="button">Sort
+                        class="btn btn-outline-primary shadow ml-3" type="button">Sort
                         by activity</button>
-                    <button onclick="app.controllers.postController.sortByTime()" class="btn btn-primary shadow ml-3"
-                        type="button">Sort by most recent</button>
+                    <button onclick="app.controllers.postController.sortByTime()"
+                        class="btn btn-outline-primary shadow ml-3" type="button">Sort by most recent</button>
                 </form>
 
                 <!-- Main posts -->
@@ -56,7 +58,7 @@
             </div>
 
             <!-- Active post -->
-            <div class="col-7">
+            <div class="col-5">
                 <div id="active-post">
                     <!-- Active posts inserted here -->
                 </div>
@@ -68,6 +70,15 @@
             </div>
 
         </div>
+
+        <footer class="mt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Made by Atteeq, Brett, Jason, Ryan, Sam</h2>
+                    <h3>CodeWorks is pretty neat!</h3>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>

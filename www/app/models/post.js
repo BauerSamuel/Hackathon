@@ -21,9 +21,9 @@ export default class Post {
                 <h3 class="card-title">${this.title}</h3>
                 <h5 class="card-text">${this.description}</h5>
                 <div>
-                <button class="mb-3 btn btn-lg btn-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View peeve!</button>
-                <button class="btn btn btn-danger shadow mb-3 ml-2" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span id="hot-counter"> ${this.postHot} </span></button>
-                <button class="btn btn btn-primary shadow mb-3 ml-2" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span id="cool-counter"> ${this.postCool} </span></button>
+                <button class="mt-3 mb-1 btn btn-lg btn-outline-light shadow" onclick="app.controllers.postController.viewActivePost('${this._id}')">View peeve</button>
+                <button class="btn btn btn-danger shadow mt-3 ml-2" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span id="hot-counter"> ${this.postHot} </span></button>
+                <button class="btn btn btn-primary shadow mt-3 ml-2" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span id="cool-counter"> ${this.postCool} </span></button>
                 </div>
             </div>    
         </div>
@@ -32,23 +32,25 @@ export default class Post {
 
     getActivePostTemplate() {
         return `
-        <div class="card comment" id="active-card">
+        <div class="card active" id="active-card">
             <img class="card-img-top" src="${this.image}" alt="Card image cap">
                 <div class="card-body">
                     <h1 class="card-title">${this.title}</h1>
                     <h4 class="card-text">${this.description}</h4>
-                    <button class="btn btn-danger shadow ml-2" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span> ${this.postHot} </span></button>
-                    <button class="btn btn-primary shadow ml-2" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span> ${this.postCool} </span></button>
-                    <button class="btn btn-dark shadow ml-5" onclick="app.controllers.postController.formDelete('${this._id}')">Delete Post </button>
+                    <button class="btn btn-sm btn-danger shadow ml-2" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span> ${this.postHot} </span></button>
+                    <button class="btn btn-sm btn-primary shadow ml-2" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span> ${this.postCool} </span></button>
+                    <button class="btn btn-lg btn-dark shadow ml-5" onclick="app.controllers.postController.formDelete('${this._id}')">Delete Post </button>
                     </div>
                     <form id="form-delete" class="form-inline px-3" onsubmit="app.controllers.postController.deletePost(event)">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="nickname" placeholder="Enter nickname...">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="nickname" placeholder="Enter nickname to delete post...">
                     <button type="submit" class="btn btn-success shadow mb-2">Confirm</button>
                     </form>
                 <form class="form-inline px-3" onsubmit="app.controllers.postController.createComment(event)">
                     <input type="text" class="form-control mb-2 mr-sm-2" id="comment-input" name="description" placeholder="Enter comment here...">
-                    <button type="submit" class="btn btn-success shadow mb-2"><i class="fas fa-check"></i></button>
+                    <button type="submit" class="btn btn-success shadow mb-2 ml-1"><i class="fas fa-check"></i></button>
                 </form>
+                 
+                </div> 
         </div>
         `
     }

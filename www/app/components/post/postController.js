@@ -18,10 +18,12 @@ function drawActivePost() {
         let comments = active.comments
         let template = ''
         comments.forEach(c => {
-            template += `<li class="comment-list mb-3">${c.description} 
-        <button onclick="app.controllers.postController.incremmentHotCold('${c._id}', 'hot')" class="btn btn-sm btn-danger shadow ml-4"><i class="fas fa-fire"></i> &ensp; <span> ${c.commentHot} </span></button>
-        <button onclick="app.controllers.postController.incremmentHotCold('${c._id}')" class="btn btn-sm btn-primary shadow ml-2"><i class="fas fa-snowflake"></i> &ensp; <span> ${c.commentCool} </span></button>
-        </li>`
+            template += `
+            <li class="comment-list">${c.description} 
+                <button onclick="app.controllers.postController.incremmentHotCold('${c._id}', 'hot')" class="btn btn-sm btn-danger shadow ml-4"><i class="fas fa-fire"></i> &ensp; <span> ${c.commentHot} </span></button>
+                <button onclick="app.controllers.postController.incremmentHotCold('${c._id}')" class="btn btn-sm btn-primary shadow ml-2"><i class="fas fa-snowflake"></i> &ensp; <span> ${c.commentCool} </span></button>
+            </li>
+                `
         })
         document.querySelector('#active-post').innerHTML = active.getActivePostTemplate() + template
     } else {
@@ -99,7 +101,7 @@ export default class PostController {
 
     // creates form to verify nickname to delete
     formDelete(_id) {
-        document.getElementById('form-delete').style.display = "block"
+        document.getElementById('form-delete').style.display = "inline"
     }
 
     sortByActivity() {

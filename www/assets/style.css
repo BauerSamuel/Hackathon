@@ -9,21 +9,28 @@ body {
     background-color: #5d1515;
     border-radius: 15px;
     border-width: thick;
-    border-color: #fa9292;
+    border-color: #888686;
     border-style: solid;
     color: white;
     box-shadow: 0 2px 10px black;
     margin: 10px;
 }
 
-.comment {
+.card-img-top {
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px
+} 
+
+#active-card {
     background-color: #5d1515;
     border-radius: 15px;
-    border-width: 8px;
-    border-color: #fa9292;
+    border-width: thick;
+    border-color: #888686;
     border-style: solid;
     color: white;
     box-shadow: 0 2px 15px black;
+    height: 80%;
+    margin-top: 3vh;
 }
 
 h1, h2, h3, form {
@@ -34,7 +41,7 @@ h1, h2, h3, form {
 .title-text {
     font-size: 102px;
     color: white;
-    text-shadow: 10px 5px 0px black;
+    text-shadow: 5px 5px 0px black;
     padding-left: 20px;
     transform: rotate(4deg);
 }
@@ -46,7 +53,7 @@ h1, h2, h3, form {
 
 header {
     margin: 5px;
-    background-image: linear-gradient(to bottom right, #551b1b, #fa2e2e);
+    background-image: linear-gradient(to right, #fa2e2e, #551b1b 80%);
     box-shadow: 0 0 20px black;
     padding-top: 10px;
 }
@@ -77,15 +84,34 @@ input[type="url"].form-input::-webkit-input-placeholder {
     color: #e92c2c;
 }
 
-#comment-input {
-    width: 60%;
+.post-input {
+    width: 30.1vw;
 }
 
-li {
-    font-size: 2rem;
-    color: #5d1515;
+#comment-input {
+    width: 60%;
 }
 
 #form-delete {
     display: none;
 }
+
+.comment-list {
+    font-size: 1.1rem;
+    list-style: none;
+    margin: 5vh 0 5vh 1vw;
+    color: #5d1515;
+}
+
+footer {
+    margin-top: 10vh;
+    height: 30vh;
+    background-image: linear-gradient(to right, #fa2e2e, #551b1b 80%);
+    width: 100%;
+}
+
+footer h2 {
+    margin-top: 10vh;
+}
+
+
