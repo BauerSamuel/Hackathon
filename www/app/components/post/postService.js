@@ -79,6 +79,8 @@ export default class PostService {
                     _setState('activePost', '')
                 }
             })
+            .catch(res => alert('It PEEVES me you\'re trying to delete someone else\'s PEEVE.'))
+
     }
 
     // view active post in right side window

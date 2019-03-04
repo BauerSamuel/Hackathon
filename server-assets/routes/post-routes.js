@@ -28,7 +28,6 @@ router.delete('/:id/:nickname', (req, res, next) => {
           .then(() => res.send('Deleted post.'))
           .catch(err => res.status(400).send(err))
       } else {
-
         res.status(400).send("Unable to Delete")
       }
     })
