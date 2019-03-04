@@ -13,7 +13,6 @@ export default class Post {
         this.date = data.date || new Date()
     }
 
-
     getPostsTemplate() {
         return `
         <div class="card">
@@ -38,12 +37,12 @@ export default class Post {
                 <div class="card-body">
                     <h1 class="card-title">${this.title}</h1>
                     <h4 class="card-text">${this.description}</h4>
-                    <button class="btn btn-sm btn-danger shadow ml-2" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span> ${this.postHot} </span></button>
-                    <button class="btn btn-sm btn-primary shadow ml-2" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span> ${this.postCool} </span></button>
-                    <button class="btn btn-lg btn-dark shadow ml-5" onclick="app.controllers.postController.formDelete('${this._id}')">Delete Post </button>
+                    <button class="btn btn-sm btn-danger shadow ml-2 mt-2" onclick="app.controllers.postController.postHot('${this._id}')"><i class="fas fa-fire"></i> &ensp; <span> ${this.postHot} </span></button>
+                    <button class="btn btn-sm btn-primary shadow ml-2 mt-2" onclick="app.controllers.postController.postCool('${this._id}')"><i class="fas fa-snowflake"></i> &ensp; <span> ${this.postCool} </span></button>
+                    <button class="btn btn-sm btn-dark shadow ml-5 mt-2" onclick="app.controllers.postController.formDelete('${this._id}')">Delete Peeve </button>
                     </div>
                     <form id="form-delete" class="form-inline px-3" onsubmit="app.controllers.postController.deletePost(event)">
-                    <input type="text" class="form-control mb-4 mr-sm-2 mt-1 active-inputs" id="delete-input" name="nickname" placeholder="Enter nickname to delete post...">
+                    <input type="text" class="form-control mb-4 mr-sm-2 mt-1 active-inputs" id="delete-input" name="nickname" placeholder="Enter nickname to delete peeve...">
                     <button type="submit" class="btn btn-warning shadow mb-4 mt-1">Confirm</button>
                     </form>
                 <form class="form-inline px-3" id="comment-input-hide" onsubmit="app.controllers.postController.createComment(event)">

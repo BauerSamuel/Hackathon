@@ -79,9 +79,6 @@ export default class PostService {
                     _setState('activePost', '')
                 }
             })
-            .catch(err => {
-                err.status(218).send('Not authorized')
-            })
     }
 
     // view active post in right side window
@@ -91,7 +88,7 @@ export default class PostService {
         _setState('activePost', data)
     }
 
-    //edit active post, increment hots
+    //edit active post: increment hots
     postHot(_id) {
         let post = _state.posts.find(p => p._id == _id)
         post.postHot++
@@ -102,7 +99,7 @@ export default class PostService {
             })
     }
 
-    //edit active post, increment cools
+    //edit active post: increment cools
     postCool(_id) {
         let post = _state.posts.find(p => p._id == _id)
         post.postCool++
@@ -130,10 +127,10 @@ export default class PostService {
         _myServer.put(`/posts/${_state.activePost._id}/hot-cool`, commentVote)
             .then(res => {
                 this.getActivePost()
-                console.log('incremment bingo')
             })
     }
 
+    //sort
     sortByActivity() {
         let array = this.Posts
         array.sort((a, b) => {

@@ -29,8 +29,8 @@ function drawActivePost() {
     } else {
         document.querySelector('#active-post').innerHTML = ''
     }
-
 }
+
 
 // Public
 export default class PostController {
@@ -54,7 +54,7 @@ export default class PostController {
             title: form.title.value,
             description: form.description.value,
             image: form.image.value,
-            nickname: form.name.value
+            nickname: form.nickname.value
         }
         _ps.addPost(newPost)
         form.reset()
@@ -77,15 +77,17 @@ export default class PostController {
         _ps.viewActivePost(_id)
     }
 
+    //increment post hots
     postHot(_id) {
         _ps.postHot(_id)
-        document.getElementById('hot-vote').disabled = true
     }
 
+    //increment post cools
     postCool(_id) {
         _ps.postCool(_id)
     }
 
+    //create a comment
     createComment(event) {
         event.preventDefault()
         let form = event.target
@@ -96,24 +98,25 @@ export default class PostController {
         form.reset()
     }
 
+    //increment comment hots/cools
     incremmentHotCold(_id, hot) {
         _ps.incremmentHotCold(_id, hot)
     }
 
-    // creates form to verify nickname to delete
+    // creates form to verify nickname before delete
     formDelete(_id) {
         document.getElementById('form-delete').style.display = "inline"
         document.getElementById('comment-input-hide').style.display = "none"
     }
 
+    // sort
     sortByActivity() {
         _ps.sortByActivity()
     }
 
+    //sort
     sortByTime() {
         location.reload()
     }
-
-
 
 }

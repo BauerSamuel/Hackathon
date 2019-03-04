@@ -28,10 +28,13 @@ router.delete('/:id/:nickname', (req, res, next) => {
           .then(() => res.send('Deleted post.'))
           .catch(err => res.status(400).send(err))
       } else {
+
         res.status(400).send("Unable to Delete")
       }
     })
-    .catch(err => res.status(400).send(err))
+    .catch(err => {
+      res.status(400).send(err)
+    })
 })
 
 router.put('/:id', (req, res, next) => {
@@ -44,7 +47,7 @@ router.put('/:id', (req, res, next) => {
     })
 })
 
-//this put request is responsible for both posting and deleting comments
+//this put request is responsible for posting comments
 router.put('/:id/comments', (req, res, next) => {
   Posts.findById(req.params.id)
     .then(post => {
