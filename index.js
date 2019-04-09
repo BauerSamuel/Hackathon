@@ -3,9 +3,18 @@ let bodyParser = require('body-parser')
 let server = express()
 let cors = require('cors')
 
-let port = 3000
+let port = process.env.PORT || 3000
+server.use(express.static(__dirname + '/../www'))
 
-server.use(cors())
+let whitelist = ['http://localhost:8080', '//peeve-post.herokuapp.com'];
+let corsOptions = {
+  origin: function (origin, callback) {
+    let originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  },
+  credentials: true
+};
+server.use(cors(corsOptions))
 server.use(express.static(__dirname + "/www"))
 
 server.use(bodyParser.json())

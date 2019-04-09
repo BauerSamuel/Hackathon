@@ -1,8 +1,10 @@
 import Post from "../../models/post.js"
 
+let base = window.location.host.includes('localhost:8080') ? '//localhost:3000/' : '/';
+
 // Private
 let _myServer = axios.create({
-    baseURL: '//localhost:3000/api'
+    baseURL: base + "api/",
 })
 
 let _state = {
